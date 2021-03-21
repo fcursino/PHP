@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Promoção Smart TV LED Samsung</title>
+    <link rel = "icon" href ="./images/television.png" type = "image/x-icon">
+</head>
+    <body>
+        <!--ANÚNCIO-->
+    <div class="alert">
+        <div class="row">
+            <div class="col-50">
+                <p>Quer receber as promoções da Smart TV LED Samsung direto no seu E-mail? Registre-se aqui!</p>
+            </div>
+            <div class="col-50">
+                <img src="https://a-static.mlcdn.com.br/618x463/smart-tv-led-32-samsung-32t4300a-wi-fi-hdr-2-hdmi-1-usb/magazineluiza/225608200/52ea19a005ac7ef47c2f53bbb5b6be9a.jpg" style="width:100%">
+            </div>
+        </div>
+    
+    </div>
+   <!--ANÚNCIO-->
+<!--FORMULÁRIO-->
+    <div class="container">
+        <form id="frm" >
+        <div class="row">
+            <div class="col-25">
+            <label for="e-mail">E-mail</label>
+            </div>
+            <div class="col-75">
+            <input type="text" id="email" name="email" placeholder="Seu e-mail..">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="nome">Nome</label>
+            </div>
+            <div class="col-75">
+            <input type="text" id="nome" name="nome" placeholder="Seu nome..">
+            </div>
+        </div>
+        <p>
+        <div class="row">
+             <p><input type="submit" value="Registrar" id="registrar"></p>
+             
+        </div>
+        
+        </p>
+        </form>
+        <div class="row">
+            <a href="emails.php"><input type="submit" value="Ver E-mails" id="ver"></a>
+        </div>
+    </div>
+    <!--FORMULÁRIO-->
+    <!--VALIDAÇÃO E CADASTRO DE E-MAIL-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script type="text/javascript">
+        $(function() {
+            $("#registrar").click(function() {
+                var nome = $("#nome").val();
+                var email = $('#email').val();
+                if(!nome || !email){
+                    alert("Preencha os campos!")
+                }
+                else{
+                    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                    if(!filter.test(email)){
+                        alert("Insira um e-mail válido!");
+                    }
+                    else{
+                       alert("Seu e-mail foi cadastrado!");
+                       $.post("./php/cadastro.php", {nome: nome, email: email} );  
+                    }
+                    $('#nome').val(''),
+                    $('#email').val('')
+                }
+                
+            });
+        });
+        </script>
+        <!--VALIDAÇÃO E CADASTRO DE E-MAIL-->
+    </body>
+    
+</html>
+
+
+
+

@@ -1,0 +1,9 @@
+CREATE DATABASE banco_promocao;
+USE banco_promocao;
+CREATE TABLE cadastrados (
+email VARCHAR(30) not null,
+nome VARCHAR(30) not null
+);
+
+
+**Para criar o BD em MySQL e rodar executar os códigos em PHP foi usado o WAMPSERVER2.5
